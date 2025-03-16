@@ -7,6 +7,8 @@ import { StyleSheetManager } from "styled-components"
 import AppRoutes from "./routes"
 import { ANTD_GLOBAL_STYLES } from "./theme/CommonStyles"
 import React from "react"
+import "./i18n"
+import Loading, { globalLoading } from "@/components/GlobalLoading"
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "production") {
   console.log = function () {}
@@ -32,6 +34,7 @@ const App = () => {
             <QueryClientProvider client={queryClient}>
               <AppRoutes />
               <GlobalModal />
+              <Loading />
             </QueryClientProvider>
           </BrowserRouter>
         </ConfigProvider>

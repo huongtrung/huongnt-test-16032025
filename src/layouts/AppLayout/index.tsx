@@ -10,7 +10,7 @@ const AppLayout: React.FC<IAppLayout> = ({ children }) => {
   return (
     <LayoutContainer>
       {/* <HeaderLayout /> */}
-      <div className="p-4 bg-white">{children}</div>
+      <div className="bg-white">{children}</div>
     </LayoutContainer>
   )
 }

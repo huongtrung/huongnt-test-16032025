@@ -54,7 +54,7 @@ class ApiUtil {
   setBaseURL(type: string) {
     switch (type) {
       case "DEFAULT":
-        return process.env.REACT_APP_BASE_URL
+        return "https://api.test.soa-dev.net/api/v1"
     }
   }
 

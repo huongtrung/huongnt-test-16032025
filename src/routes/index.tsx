@@ -5,14 +5,12 @@ import NotFound from "@/pages/NotFound"
 
 const AppRoutes = () => {
   return (
-    <AppLayout>
-      <Routes>
-        {ROUTERS_DATA.map((route: IRouter, i: number) => {
-          return <Route path={route.href} element={<route.element />} key={i} />
-        })}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AppLayout>
+    <Routes>
+      {ROUTERS_DATA.map((route: IRouter, i: number) => {
+        return <Route path={route.href} element={<route.element />} key={i} />
+      })}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   )
 }
 
