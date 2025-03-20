@@ -1,5 +1,8 @@
 import { usePagesStore } from "@/stores/usePageStore"
 import Images from "@/theme/Images"
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const Bloc5Layout: React.FC = () => {
   const { pagesData } = usePagesStore()
@@ -19,15 +22,19 @@ const Bloc5Layout: React.FC = () => {
     }
   }
 
+  useEffect(() => {
+    AOS.init({ once: false, duration: 800 })
+  }, [])
+
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
       <div className="flex flex-col-reverse lg:flex-row">
-        <div className="flex-1">
+        <div className="flex-1 mt-2" data-aos="fade-left" data-aos-delay="200">
           <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
             <span className="text-[#f15a29]">{pagesData?.bloc_4?.title + "  "}</span>
             <span className="text-[#f15a29] text-opacity-50">{pagesData?.bloc_4?.subtitle}</span>
           </h2>
-          <div className="flex flex-row mt-20">
+          <div className="flex flex-row mt-10">
             <div className="w-20 h-0.5 mt-4 bg-[#BBBBBB] mr-2"></div>
             <div className=" md:pl-10">
               <h3 className="font-bold text-lg text-[#3d1f1f] mb-5">{pagesData?.bloc_4?.text_title}</h3>
@@ -35,7 +42,7 @@ const Bloc5Layout: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1" data-aos="fade-right" data-aos-delay="200">
           <img src={Images.ice_cream} alt="Ice cream" className="rounded-xl w-full max-w-md mx-auto object-cover" />
         </div>
       </div>

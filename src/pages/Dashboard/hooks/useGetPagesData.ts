@@ -2,10 +2,10 @@ import { useMutation } from "@tanstack/react-query"
 import { getPagesData } from "../api/getPagesData"
 import { usePagesStore } from "@/stores/usePageStore"
 
-const useGetPagesData = async () => {
+export const useGetPagesData = () => {
   const { setPagesData } = usePagesStore()
-  return useMutation({
-    mutationFn: getPagesData,
+  const getPagesDataMutation = useMutation({
+    mutationFn: (data: string) => getPagesData(data),
     onSuccess(data, variables, context) {
       if (data) {
         setPagesData(data?.[0])
@@ -15,6 +15,5 @@ const useGetPagesData = async () => {
       setPagesData(null)
     },
   })
+  return getPagesDataMutation
 }
-
-export default useGetPagesData

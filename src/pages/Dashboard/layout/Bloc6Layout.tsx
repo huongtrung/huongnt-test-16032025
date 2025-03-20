@@ -1,5 +1,8 @@
 import { usePagesStore } from "@/stores/usePageStore"
 import Images from "@/theme/Images"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from "react"
 
 const Bloc6Layout = () => {
   const { pagesData } = usePagesStore()
@@ -19,6 +22,10 @@ const Bloc6Layout = () => {
     }
   }
 
+  useEffect(() => {
+    AOS.init({ once: false, duration: 800 })
+  }, [])
+
   return (
     <section className="bg-gradient-to-b from-[#e6f8fd] to-white py-12 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
@@ -34,7 +41,11 @@ const Bloc6Layout = () => {
             backgroundImage: `url(${Images.bg})`,
           }}
         >
-          <div className="relative m-10 mt-16 bg-white p-4 rounded-xl overflow-hidden">
+          <div
+            className="relative m-10 mt-16 bg-white p-4 rounded-xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <img src={Images.dish} alt="Main" className="w-full h-[270px] sm:h-full object-cover rounded-xl" />
             <div className="absolute bottom-0 left-0 right-0 bg-white rounded-xl p-4 py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
               <div>

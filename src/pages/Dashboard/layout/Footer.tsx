@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#532e2b] text-white px-4 py-10 sm:py-14">
-      <div className="max-w-7xl">
+      <div className="">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm sm:text-base">
           <div>
             <h4 className="font-semibold text-white mb-2">{pagesData?.footer?.address?.name}</h4>

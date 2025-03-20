@@ -1,7 +1,9 @@
 import { usePagesStore } from "@/stores/usePageStore"
 import Images from "@/theme/Images"
 import { Divider } from "antd"
-import React, { useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const Bloc2Layout = () => {
   const { pagesData } = usePagesStore()
@@ -18,6 +20,10 @@ const Bloc2Layout = () => {
         return Images.hunting
     }
   }
+
+  useEffect(() => {
+    AOS.init({ once: false, duration: 800 })
+  }, [])
 
   const locationData = useMemo(() => {
     return [
@@ -51,7 +57,7 @@ const Bloc2Layout = () => {
   return (
     <section className="py-12 bg-[#fdf7f5] relative">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-8">
+        <div className="text-center mb-8" data-aos="fade-down" data-aos-delay="200">
           <h2 className="text-3xl md:text-4xl font-bold text-orange-500 uppercase relative inline-block">
             <span className="before:absolute before:left-[-14rem] before:top-1/2 before:w-40 before:h-px before:bg-gray-300 after:absolute after:right-[-14rem] after:top-1/2 after:w-40 after:h-px after:bg-gray-300">
               {pagesData?.bloc_2?.title}
@@ -73,7 +79,7 @@ const Bloc2Layout = () => {
           </div>
         </div>
 
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
           <img
             src={Images.map}
             alt="Carte interactive"
@@ -91,7 +97,7 @@ const Bloc2Layout = () => {
               <img
                 src={loc.image}
                 alt={loc.name}
-                className={`w-12 h-14 transition-all duration-300 hover:scale-110 ${
+                className={`w-12 h-14 transition-all duration-300 hover:scale-120 ${
                   activeLocation?.id === loc.id ? "scale-125 border-yellow-400" : ""
                 }`}
               />

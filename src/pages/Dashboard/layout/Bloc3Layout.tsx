@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
   format,
   startOfMonth,
@@ -13,6 +13,8 @@ import {
 } from "date-fns"
 import { Divider } from "antd"
 import { usePagesStore } from "@/stores/usePageStore"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const Bloc3Layout = () => {
   const { pagesData } = usePagesStore()
@@ -106,9 +108,13 @@ const Bloc3Layout = () => {
     return <div className="space-y-2">{rows}</div>
   }
 
+  useEffect(() => {
+    AOS.init({ once: false, duration: 800 })
+  }, [])
+
   return (
     <section className="px-4 py-12">
-      <div className="text-center mb-10">
+      <div className="text-center mb-10" data-aos="fade-down" data-aos-delay="200">
         <h2 className="text-3xl md:text-4xl font-bold text-orange-500 uppercase relative inline-block">
           <span className="before:absolute before:left-[-7rem] before:top-1/2 before:w-20 before:h-px before:bg-gray-300 after:absolute after:right-[-7rem] after:top-1/2 after:w-20 after:h-px after:bg-gray-300">
             {pagesData?.bloc_2_2?.title}
@@ -116,7 +122,11 @@ const Bloc3Layout = () => {
         </h2>
       </div>
 
-      <div className="bg-white rounded-2xl border-2 p-4 md:p-8 max-w-5xl mx-auto mt-10">
+      <div
+        className="bg-white rounded-2xl border-2 p-4 md:p-8 max-w-5xl mx-auto mt-10"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         {renderHeader()}
         <div className="grid grid-cols-7 gap-2 text-sm md:text-base mb-2">{renderDays()}</div>
         {renderCells()}

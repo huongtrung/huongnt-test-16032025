@@ -1,6 +1,8 @@
 import { usePagesStore } from "@/stores/usePageStore"
 import Images from "@/theme/Images"
-import React from "react"
+import React, { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const Bloc1Layout: React.FC = () => {
   const { pagesData } = usePagesStore()
@@ -18,6 +20,13 @@ const Bloc1Layout: React.FC = () => {
     }
   }
 
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+      once: false,
+    })
+  }, [])
+
   return (
     <section className="py-12 px-4 sm:px-8 md:px-16 bg-white text-center">
       <div className="max-w-4xl mx-auto">
@@ -32,6 +41,8 @@ const Bloc1Layout: React.FC = () => {
             className={`bg-white rounded-xl overflow-hidden shadow-sm text-left transition-all duration-300 ${
               index === 1 ? "relative z-10 -mt-10" : "mt-0"
             }`}
+            data-aos={index === 1 ? "zoom-in" : index === 0 ? "fade-right" : "fade-left"}
+            data-aos-delay={index * 100} // delay tăng dần theo index
           >
             <img
               src={getImage(index)}

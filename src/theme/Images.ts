@@ -30,6 +30,9 @@ import icon_3 from "@/assets/images/icon_3.png"
 import icon_4 from "@/assets/images/icon_4.png"
 import icon_5 from "@/assets/images/icon_5.png"
 
+import en from "@/assets/images/en-lang-circle.png"
+import fr from "@/assets/images/fr-lang-circle.png"
+
 import dish from "@/assets/images/dish.svg"
 import m_1 from "@/assets/images/m_1.svg"
 import m_2 from "@/assets/images/m_2.svg"
@@ -92,5 +95,7 @@ const Images = {
   attach: attach,
   huting: huting,
   msg: msg,
+  fr: fr,
+  en: en,
 }
 export default Images

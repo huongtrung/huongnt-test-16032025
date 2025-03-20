@@ -1,8 +1,10 @@
 import { usePagesStore } from "@/stores/usePageStore"
 import Images from "@/theme/Images"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const Bloc3InputLayout = () => {
   const { pagesData } = usePagesStore()
@@ -19,9 +21,13 @@ const Bloc3InputLayout = () => {
     }
   }
 
+  useEffect(() => {
+    AOS.init({ once: false, duration: 800 })
+  }, [])
+
   return (
     <section className="py-6 relative">
-      <form className="max-w-6xl mx-auto px-4">
+      <form className="max-w-6xl mx-auto px-4" data-aos="zoom-in-up" data-aos-delay="200">
         <div className="flex flex-row items-center gap-4 mb-4">
           <label className="w-20 block font-medium text-brown-800 mb-1">{pagesData?.bloc_2_2?.btn_1?.[0]} :</label>
           <input

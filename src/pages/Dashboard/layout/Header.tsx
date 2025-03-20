@@ -15,7 +15,7 @@ const Header: React.FC = () => {
         <div className="font-bold text-lg ml-10 md:mr-20">LOGO SAMPLE</div>
         <nav className="ml-10 hidden md:flex gap-10 text-sm uppercase">
           {pagesData?.banner_menu?.map((page: any) => (
-            <a href="#" className="hover:underline" key={page}>
+            <a className="hover:underline" key={page}>
               {page}
             </a>
           ))}
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       </div>
       <div className="md:hidden w-full flex flex-row">
         <div className="flex-1 font-bold text-sm ml-10 mr-20">LOGO SAMPLE</div>
-        <div className="flex-1 justify-end">
+        <div className="mr-10">
           <button onClick={() => setOpen(!open)}>
             <MenuOutlined style={{ color: "#ffffff" }} />
           </button>
